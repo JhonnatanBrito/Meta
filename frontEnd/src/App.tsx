@@ -1,8 +1,27 @@
+import NotificationButton from "./components/NotificationButton"
+import Header from "./components/Header"
+import Aplicacation from "./components/Aplicacation"
 
 function App() {
-  return(
+  return (
+    <>
+      <Header />
 
-    <h1>Olá mundo !! pelo React</h1>
+      <main>
+        <section id="Aplicacation">
+          <div className="dsmeta-container">
+          
+       <Aplicacation/>
+
+          </div>
+        </section>
+      </main>
+
+
+
+      <NotificationButton />
+
+    </>
   )
 }
 
