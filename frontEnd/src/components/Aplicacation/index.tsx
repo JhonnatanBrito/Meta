@@ -1,19 +1,48 @@
-import './styles.css'
-import NotificationButton from '../NotificationButton'
+import './styles.css';
+import NotificationButton from '../NotificationButton';
+import ReactDatePicker from 'react-datepicker';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from 'react';
 
-function Aplicacation() {
+
+function Aplicacation(this: any) {
+
+    
+    const min =  new Date().setDate(new Date().getDate()- 365);
+    const teste  =  new Date().setDate(new Date().getDate()-365);
+
+    const [initialDate, setInitialDate] = useState(new Date());
+    const [finalDate, setFinalDate] = useState(new Date());
+
+
+
+
+  
     return (
         <>
             <div className="dsmeta-card">
                 <h2 className="Aplicacao-h2"> Aplicação: </h2>
                 <div>
                     <div className="dsmeta-form-control-input">
-                        <input className="dsmeta-form-control" type="text" />
-                    </div>
+                        <ReactDatePicker
+                           selected={initialDate}
+                            onChange={(date: Date) => setInitialDate(date)}
+                            className="dsmeta-form-control"
+                            dateFormat="dd/MM/yyyy"
+                        />
+                     </div>
 
                     <div className="dsmeta-form-control-input">
-                        <input className="dsmeta-form-control" type="text" />
-                    </div>
+
+                        <DatePicker
+
+                            selected={finalDate}
+                            onChange={(date: Date) => setFinalDate(date)}
+                            className="dsmeta-form-control"
+                            dateFormat="dd/MM/yyyy"
+                        />
+                     </div>
                 </div>
                 <div>
                     <table className="dsmeta-aplication-table">
@@ -78,4 +107,7 @@ function Aplicacation() {
     )
 }
 
-export default Aplicacation
+
+
+
+export default Aplicacation;

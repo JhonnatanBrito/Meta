@@ -1,6 +1,6 @@
-import NotificationButton from "./components/NotificationButton"
-import Header from "./components/Header"
-import Aplicacation from "./components/Aplicacation"
+import NotificationButton from "./components/NotificationButton";
+import Header from "./components/Header";
+import Aplicacation from "./components/Aplicacation";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <section id="Aplicacation">
           <div className="dsmeta-container">
           
-       <Aplicacation/>
+           <Aplicacation/>
 
           </div>
         </section>
@@ -25,4 +25,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
