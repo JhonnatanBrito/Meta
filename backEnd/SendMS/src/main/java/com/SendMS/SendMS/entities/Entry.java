@@ -22,7 +22,7 @@ public class Entry {
     
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private long id;               // id do Banco
+   private Long id;               // id do Banco
    
    private String sellerName;    //Nome do Vendedor
    private Integer visited;      // Numero de Visitas
