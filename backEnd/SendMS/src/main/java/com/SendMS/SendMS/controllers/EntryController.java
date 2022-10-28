@@ -10,8 +10,11 @@ import com.SendMS.SendMS.services.DataServices;
 import java.util.List;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -24,7 +27,13 @@ public class EntryController {
     DataServices service;
     
     @GetMapping
-    public List<Entry> findData(){  // retorna a lista de dados do repository / services/ 
-        return service.findDatas(); 
+    public Page<Entry> findData(
+            @RequestParam(value="initialDate", defaultValue = "") String initialDate,
+            @RequestParam(value="finalDate", defaultValue = "")  String finalDate, 
+            Pageable pageable){  // retorna a lista de dados do repository / services/ 
+      
+        return service.findDatas(initialDate,finalDate, pageable); 
+        
+        
     }
 }

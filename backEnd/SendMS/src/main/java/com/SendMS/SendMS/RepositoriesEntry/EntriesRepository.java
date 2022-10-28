@@ -6,11 +6,16 @@
 package com.SendMS.SendMS.RepositoriesEntry;
 
 import com.SendMS.SendMS.entities.Entry;
+import java.time.LocalDate;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 
 public interface EntriesRepository extends JpaRepository<Entry, Long>{
     
-    
+    @Query("SELECT obj FROM Entry obj WHERE obj.date BETWEEN :min AND :max ORDER BY obj.amount DESC")
+   Page<Entry> findSales(LocalDate min, LocalDate max, Pageable pageable);
     
 }

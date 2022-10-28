@@ -7,8 +7,14 @@ package com.SendMS.SendMS.services;
 
 import com.SendMS.SendMS.RepositoriesEntry.EntriesRepository;
 import com.SendMS.SendMS.entities.Entry;
-import java.util.List;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,9 +27,31 @@ public class DataServices {
     @Autowired
     private EntriesRepository repository;
     
-    public List<Entry> findDatas(){
+    public Page<Entry> findDatas(String initialDate, String finalDate, Pageable pageable){
         
-     return repository.findAll();
+      LocalDate hoje =  LocalDate.now();
+      
+      /*
+        if (initialDate == null){
+        initialDate = "2021-10-28";
+        } 
+           if (finalDate == null){
+        initialDate = 
+                String.valueOf(LocalDate.now()) ;
+        }
+        
+        */
+      
+     
+      
+      
+      
+      
+        LocalDate initial =  initialDate.equals("")? hoje.minusDays(150) : LocalDate.parse(initialDate);
+        LocalDate finalDT = finalDate.equals("")? hoje: LocalDate.parse(finalDate);
+        
+    
+     return repository.findSales(initial, finalDT, pageable);
     }
     
 }
