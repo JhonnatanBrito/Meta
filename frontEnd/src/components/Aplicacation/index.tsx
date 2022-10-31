@@ -18,11 +18,15 @@ function Aplicacation() {
     const [initialDate, setInitialDate] = useState(new Date());
     const [finalDate, setFinalDate] = useState(new Date());
 
+    const dmin = initialDate.toISOString().slice(0,10);
+    const dmax = finalDate.toISOString().slice(0,10);
+
+console.log(dmin);
 
     const [salesList, setSales] = useState<Sale[]>([])
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/sales`)
+        axios.get(`${BASE_URL}/sales?initialDate=${dmin}&finalDate=${dmax}`)
         .then(response => {
             
             setSales(response.data.content);
@@ -30,7 +34,7 @@ function Aplicacation() {
 
         });
 
-    }, []);
+    }, [initialDate,finalDate]);
 
   
     return (
