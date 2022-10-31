@@ -3,10 +3,11 @@ import NotificationButton from '../NotificationButton';
 import ReactDatePicker from 'react-datepicker';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
-function Aplicacation(this: any) {
+function Aplicacation() {
 
     
     const min =  new Date().setDate(new Date().getDate()- 365);
@@ -16,7 +17,13 @@ function Aplicacation(this: any) {
     const [finalDate, setFinalDate] = useState(new Date());
 
 
+    useEffect(() => {
+        axios.get("http://localhost:8080/sales")
+        .then(response => {
+            console.log(response.data);
+        });
 
+    }, []);
 
   
     return (
