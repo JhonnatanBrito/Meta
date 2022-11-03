@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.SendMS.SendMS.controllers;
+package com.SendMS.controllers;
 
-import com.SendMS.SendMS.entities.Entry;
-import com.SendMS.SendMS.services.DataServices;
-import com.SendMS.SendMS.services.SmsService;
+import com.SendMS.entities.Entry;
+import com.SendMS.services.DataServices;
+import com.SendMS.services.SmsService;
 import java.util.List;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,21 +33,20 @@ public class EntryController {
     
     
     @GetMapping
-    public Page<Entry> findData(
+     public Page<Entry> findData(
             @RequestParam(value="initialDate", defaultValue = "") String initialDate,
             @RequestParam(value="finalDate", defaultValue = "")  String finalDate, 
             Pageable pageable){  // retorna a lista de dados do repository / services/ 
-      
+        
+               System.err.println("entru no metodo <<<<<<<<<<<<<<<<<<<<<<"); 
+               
         return service.findDatas(initialDate,finalDate, pageable); 
-        
-        
-    }
-    
-    
+            }
+/*
     @GetMapping("/{id}/notification")    
     public void notifySMS(@PathVariable Long id){
         smsService.sendSms(id);
        
     }
-     
+     */
 }

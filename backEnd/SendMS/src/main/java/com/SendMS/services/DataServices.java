@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.SendMS.SendMS.services;
+package com.SendMS.services;
 
-import com.SendMS.SendMS.RepositoriesEntry.EntriesRepository;
-import com.SendMS.SendMS.entities.Entry;
+import com.SendMS.RepositoriesEntry.EntriesRepository;
+import com.SendMS.entities.Entry;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -43,10 +43,6 @@ public class DataServices {
         */
       
      
-      
-      
-      
-      
         LocalDate initial =  initialDate.equals("")? hoje.minusDays(150) : LocalDate.parse(initialDate);
         LocalDate finalDT = finalDate.equals("")? hoje: LocalDate.parse(finalDate);
         

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.SendMS.SendMS.RepositoriesEntry;
+package com.SendMS.RepositoriesEntry;
 
-import com.SendMS.SendMS.entities.Entry;
+import com.SendMS.entities.Entry;
 import java.time.LocalDate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

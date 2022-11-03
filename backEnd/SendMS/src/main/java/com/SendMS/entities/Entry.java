@@ -3,19 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.SendMS.SendMS.entities;
+package com.SendMS.entities;
 
 import java.time.LocalDate;
+import javax.lang.model.SourceVersion;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- *
- * @author Jhonn
- */
+
 @Entity   // anotação que define relação com tabela do banco
 @Table(name = "tb_sales") // anotação que relaciona com a tabela "tb_sales" do banco
 public class Entry {
@@ -81,7 +79,8 @@ public class Entry {
     public void setDate(LocalDate date) {
         this.date = date;
     }
-    
+
+  
     
     
 }
