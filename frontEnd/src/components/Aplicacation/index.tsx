@@ -21,7 +21,7 @@ function Aplicacation() {
     const dmin = initialDate.toISOString().slice(0,10);
     const dmax = finalDate.toISOString().slice(0,10);
 
-console.log(dmin);
+//console.log(dmin);
 
     const [salesList, setSales] = useState<Sale[]>([])
 
@@ -31,7 +31,6 @@ console.log(dmin);
             
             setSales(response.data.content);
           
-
         });
 
     }, [initialDate,finalDate]);
@@ -88,7 +87,7 @@ console.log(dmin);
                                         <td>{sale.amount}</td>
                                         <td>
                                             <div className="dsmeta-aplication-btn-container">
-                                                <NotificationButton />
+                                                <NotificationButton saleId={sale.id} />
                                             </div>
                                         </td>
                                     </tr>
